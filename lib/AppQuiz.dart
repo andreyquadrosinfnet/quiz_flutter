@@ -6,11 +6,19 @@ class AppQuiz extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.fromLTRB(32, 32, 32, 32),
-      child: Text(
-        enunciado
+    return Center(
+      child: Container(
+        width: double.infinity,
+        margin: EdgeInsets.fromLTRB(32, 32, 32, 32),
+        child: Center(
+          child: Text(
+            enunciado,
+            style: TextStyle(
+              fontSize: 25,
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ),
       ),
     );
   }
