@@ -25,6 +25,14 @@ class _QuizState extends State<Quiz> {
     }
   }
 
+  void reiniciarJogo(){
+    setState(() {
+      posicaoQuestao = 0;
+      pontuacao = 0;
+    });
+
+  }
+
   final questoes = [
     {
       "Enunciado": "Para que serve um StateLessWidget?",
@@ -65,12 +73,16 @@ class _QuizState extends State<Quiz> {
     print(posicaoQuestao);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text('Quiz App'),
         ),
         body: verificarFimDeJogo
-            ? Resultado()
+            ? Resultado(pontuacao: pontuacao,
+                        pontuacaoTotal: questoes.length*2,
+                        reiniciarJogo: reiniciarJogo,
+          )
             : Questionario(
             questoes: questoes,
             posicaoQuestao: posicaoQuestao,
